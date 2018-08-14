@@ -18,10 +18,10 @@ table thead tr th {
 
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container" >
-	<jstl:if test="${sessionScope.searchCust != null }">
+	<jstl:if test="${requestScope.searchCust != null }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
-	<h5 class="card-title mt-2" style="color:white;">Account Details of</h5>
+	<h5 class="card-title mt-2" style="color:white;">Account Details of :<b style="color: lightgreen; text-transform: uppercase;"> ${requestScope.searchCust.accountHolder.customerName}</b></h5>
 </header>
 	
 <table class="table table-striped table-dark col-md-12" style="background-color: rgba(50,50,50,0.8);">
@@ -33,23 +33,23 @@ table thead tr th {
       <th scope="col">Email ID</th>
       <th scope="col">PhoneNo</th>
       <th scope="col">DateOfBirth (YYYY/MM/DD)</th>
-      <th scope="col">Update</th>
+    
       
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>${sessionScope.searchCust.accountHolder.customerId}</td>
-      <td>${sessionScope.searchCust.accountHolder.customerName}</td>
-      <td>${sessionScope.searchCust.accountNumber}</td>
-      <td>${sessionScope.searchCust.accountHolder.emailId}</td> 
-      <td>${sessionScope.searchCust.accountHolder.contactNumber}</td>
-     <td>${sessionScope.searchCust.accountHolder.dateOfBirth}</td>
-     <td><a href="">Update</a></td>
+      <td>${requestScope.searchCust.accountHolder.customerId}</td>
+      <td>${requestScope.searchCust.accountHolder.customerName}</td>
+      <td>${requestScope.searchCust.accountNumber}</td>
+      <td>${requestScope.searchCust.accountHolder.emailId}</td> 
+      <td>${requestScope.searchCust.accountHolder.contactNumber}</td>
+     <td>${requestScope.searchCust.accountHolder.dateOfBirth}</td>
+    
     </tr></tbody>
 </table>
 </div></jstl:if>
-<jstl:if test="${sessionScope.searchCust == null }">
+<jstl:if test="${requestScope.searchCust == null }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h5 class="card-title mt-2" style="color:red;text-align: center;">Customer Not Found</h5>

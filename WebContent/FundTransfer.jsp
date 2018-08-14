@@ -17,7 +17,7 @@ label {
 	<div class="container">
 		<div class="row justify-content-center">
 		
-<jstl:if test="${sessionScope.viewcust.size() != 0 }">
+<jstl:if test="${requestScope.viewcust.size() != 0 }">
 			<div class="col-md-10">
 				<div class="card shadow p-3 mb-5 rounded"
 					style="background-color: rgba(50, 50, 50, 0.8);">
@@ -63,7 +63,7 @@ label {
 					</article>
 				</div>
 			</div></jstl:if>
-<jstl:if test="${sessionScope.viewcust.size() == 0 }">
+<jstl:if test="${requestScope.viewcust.size() == 0 }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h5 class="card-title mt-2" style="color:red;text-align: center;">OOPS!!! Accounts not available yet</h5>

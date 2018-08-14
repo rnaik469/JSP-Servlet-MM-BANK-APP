@@ -18,7 +18,7 @@ table thead tr th {
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container" >
 <div class="row justify-content-center" >
-<jstl:if test="${sessionScope.viewcust.size() != 0 }">
+<jstl:if test="${requestScope.viewaccount.size() != 0 }">
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h3 class="card-title mt-2" style="text-align: center; color:white;">All Available Account</h3>
 </header>
@@ -35,7 +35,7 @@ table thead tr th {
     </tr>
   </thead>
   <tbody>
-   <jstl:forEach var="viewaccount" items="${sessionScope.viewaccount}">
+   <jstl:forEach var="viewaccount" items="${requestScope.viewaccount}">
     <tr>
       <td>${viewaccount.accountNumber}</td>
       <td>${viewaccount.accountHolder.customerId}</td>
@@ -47,7 +47,8 @@ table thead tr th {
     </tr></jstl:forEach>
   </tbody>
 </table></jstl:if> </div></div>
-<jstl:if test="${sessionScope.viewcust.size() == 0 }">
+
+<jstl:if test="${requestScope.viewaccount.size() == 0 }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h5 class="card-title mt-2" style="color:red;text-align: center;">OOPS!!! Accounts not available yet</h5>

@@ -21,14 +21,6 @@ public class BankAccountDAO implements BankAccountDAOI  {
 		bankAcc.put(account.getAccountNumber(), account);
 	}
 	
-	public void AddNewCurrentAccount(SavingsAccount account) {
-		bankAcc.put(account.getAccountNumber(), account);
-	}
-	
-	public void AddNewSavingAccount(SavingsAccount account) {
-		bankAcc.put(account.getAccountNumber(), account);
-	}
-
 	/* (non-Javadoc)
 	 * @see in.co.cg.mmbank.dao.BankAccountDAOI#searchAccount()
 	 */

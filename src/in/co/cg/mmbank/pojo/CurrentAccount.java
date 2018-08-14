@@ -3,28 +3,41 @@
 
 package in.co.cg.mmbank.pojo;
 
+/**
+ * @author rohit Naik
+ *
+ */
 public  class CurrentAccount extends BankAccount {
 	private double odLimit;
 	private String salary="NA"; 
 
-	public double getOdLimit() {
-		return odLimit;
-	}
-
+	
+	
+	/**
+	 * @param accountHolder
+	 * @param accountBalance
+	 * @param accountType
+	 * @param odLimit
+	 */
 	public CurrentAccount(Customer accountHolder, double accountBalance, String accountType, double odLimit) {
 		super(accountHolder, accountBalance, accountType);
 			this.odLimit=odLimit;
 	}
 
 
-	public void setOdLimit(double odLimit) {
-		this.odLimit = odLimit;
-	}
+	
+	/*
+	 * (non-Javadoc) Withdraw for Current Account
+	 * 
+	 * @returns yes on success withdraw
+	 * 
+	 * @see in.co.cg.mmbank.pojo.BankAccount#withdraw(double)
+	 */
 	@Override
 	public String withdraw(double amountToBeWithDrawn) {
 		String flag="";
 		if(odLimit+getAccountBalance()>=amountToBeWithDrawn)
-		{System.out.println(getAccountBalance()+"	"+amountToBeWithDrawn);
+		{
 			setAccountBalance(((getAccountBalance()-amountToBeWithDrawn)));
 		flag="yes";
 		}
@@ -38,7 +51,7 @@ public  class CurrentAccount extends BankAccount {
 	public String toString() {
 		return "CurrentAccount [odLimit=" + odLimit + ", toString()=" + super.toString() + "]";
 	}
-
+	//getters and setters
 	public String getSalary() {
 		return salary;
 	}
@@ -46,4 +59,10 @@ public  class CurrentAccount extends BankAccount {
 	public void setSalary(String salary) {
 		this.salary = salary;
 	}	
+	public double getOdLimit() {
+		return odLimit;
+	}
+	public void setOdLimit(double odLimit) {
+		this.odLimit = odLimit;
+	}
 }

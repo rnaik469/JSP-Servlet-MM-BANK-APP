@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>BooksOnKart</title>
+<title>Money Money Bank</title>
 </head>
 
 <body>

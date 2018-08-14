@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container" >
-<jstl:if test="${sessionScope.transfer == true}">
+<jstl:if test="${requestScope.transfer == true}">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8); ">
 	<br/>
@@ -23,9 +23,9 @@
 	<br/>
 	<br/>
 	<h5 class="card-title mt-2" style="margin-left: 35%;color:lawngreen; ">Successfully transfered... </h5>
-	<h3><span style="color:white;margin-left: 20%;text-align: center;"><b style="color:lightgreen;">Rs. ${sessionScope.amount}</b>  from Account Number  <b style="color:red;">${sessionScope.sender}</b> to <b style="color:palegreen;">${sessionScope.reciever}</b> </span> </h3>
+	<h3><span style="color:white;margin-left: 20%;text-align: center;"><b style="color:lightgreen;">Rs. ${requestScope.amount}</b>  from Account Number  <b style="color:red;">${requestScope.sender}</b> to <b style="color:palegreen;">${requestScope.reciever}</b> </span> </h3>
 	<br/>
-	<h5 class="card-title mt-2" style="margin-left:20%;color:white; ">Remarks: ${sessionScope.remarks} </h5>
+	<h5 class="card-title mt-2" style="margin-left:20%;color:white; ">Remarks: ${requestScope.remarks} </h5>
 	<br/>
 	<a href="index.jsp" style="margin-left: 38%;text-align: center;" class="btn btn-light btn-sm	">Click here to go home</a>
 	<br/>
@@ -34,11 +34,11 @@
 	<br/>
 </header>
 </div></jstl:if>
-<jstl:if test="${sessionScope.transfer == false }">
+<jstl:if test="${requestScope.transfer == false }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
-	<h5 class="card-title mt-2" style="color:red;text-align: center;">Customer Not Found</h5>
-	<a href="WithdrawForm.jsp" style="margin-left: 38%;text-align: center;" class="btn btn-light btn-lg">Click here to go back</a>
+	<h5 class="card-title mt-2" style="color:red;text-align: center;">Customer Not Found or Insufficient Amount</h5>
+	<a href="FundTransfer.jsp" style="margin-left: 38%;text-align: center;" class="btn btn-light btn-lg">Click here to go back</a>
 </header></div>
 </jstl:if>
 </div>

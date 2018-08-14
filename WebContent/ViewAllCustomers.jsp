@@ -20,7 +20,7 @@ table thead tr th {
 <div class="container" >
 <div class="row justify-content-center" >
 
-<jstl:if test="${sessionScope.viewcust.size() != 0 }">
+<jstl:if test="${requestScope.viewcust.size() != 0 }">
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h3 class="card-title mt-2" style="text-align: center; color:white;">All Available Account</h3>
 </header>
@@ -38,7 +38,7 @@ table thead tr th {
     </tr>
   </thead>
   <tbody>
-     <jstl:forEach var="viewcust" items="${sessionScope.viewcust}">
+     <jstl:forEach var="viewcust" items="${requestScope.viewcust}">
     <tr>
       <td>${viewcust.accountHolder.customerId}</td>
       <td>${viewcust.accountHolder.customerName}</td>
@@ -46,12 +46,12 @@ table thead tr th {
       <td>${viewcust.accountHolder.emailId}</td> 
       <td>${viewcust.accountHolder.contactNumber}</td>
      <td>${viewcust.accountHolder.dateOfBirth}</td>
-     <td><a href="">Update</a></td>
+     <td><a href="updateInfo.app?accId=${viewcust.accountNumber}">Update</a></td>
       
     </tr></jstl:forEach>
   </tbody>
 </table></jstl:if></div></div>
-<jstl:if test="${sessionScope.viewcust.size() == 0 }">
+<jstl:if test="${requestScope.viewcust.size() == 0 }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h5 class="card-title mt-2" style="color:red;text-align: center;">OOPS!!! Accounts not available yet</h5>

@@ -1,14 +1,14 @@
 //This abstract class will be implemented by various types of BankAccount.
 
 package in.co.cg.mmbank.pojo;
- 
+
+import java.time.LocalDate;
 
 public abstract class BankAccount {
 	private final int accountNumber;
 	private Customer accountHolder;
 	private double accountBalance;
 	private String accountType;
-	private String withdrawcheck;
 	//maintains the next accountNumber
 	private static int accountId;
 	
@@ -68,6 +68,14 @@ public abstract class BankAccount {
 		return accountId+1;
 	}
 	
+	public void updateCustomerDetails(BankAccount account,long contactNumber,LocalDate dateOfBirth, String customerName,String emailId) {
+		account.accountHolder.setContactNumber(contactNumber);
+		account.accountHolder.setDateOfBirth(dateOfBirth);
+		account.accountHolder.setCustomerName(customerName);;
+		account.accountHolder.setEmailId(emailId);
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "BankAccount [accountNumber=" + accountNumber + ", accountHolderName=" + accountHolder
@@ -82,11 +90,4 @@ public abstract class BankAccount {
 		this.accountType = accountType;
 	}
 
-	public String getWithdrawcheck() {
-		return withdrawcheck;
-	}
-
-	public void setWithdrawcheck(String withdrawcheck) {
-		this.withdrawcheck = withdrawcheck;
-	}
 }

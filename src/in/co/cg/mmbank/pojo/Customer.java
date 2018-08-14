@@ -4,6 +4,10 @@ package in.co.cg.mmbank.pojo;
 
 import java.time.LocalDate;
 
+/**
+ * @author rohit naik
+ *
+ */
 public class Customer {
 	private final int customerId;
 	private String customerName;
@@ -13,25 +17,36 @@ public class Customer {
 	private String Address;
 	private String nationality;
 	private String gender;
-
+		
+	//static block intializing custID; 
 	static {
 		custId = 200;
 	}
 
+		//this block increments customerId
 	{
 		this.customerId = ++custId;
 	}
 
+	/**
+	 * @param customerName
+	 * @param emailId
+	 * @param contactNumber
+	 * @param dateOfBirth
+	 * @param permanentAddress
+	 * @param gender
+	 */
 	public Customer(String customerName, String emailId, long contactNumber, LocalDate dateOfBirth,
 			String permanentAddress, String gender) {
 		this.customerName = customerName;
 		this.contactNumber = contactNumber;
 		this.emailId = emailId;
 		this.dateOfBirth = dateOfBirth;
-		this.nationality = nationality;
+
 		this.gender = gender;
 	}
-
+		
+	//Getters and setters
 	public String getNationality() {
 		return nationality;
 	}

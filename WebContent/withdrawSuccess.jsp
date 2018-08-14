@@ -21,34 +21,57 @@ table thead tr th {
 
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container" >
-	<jstl:if test="${sessionScope.viewcust != null }">
+	<jstl:if test="${requestScope.viewcust != null }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h5 class="card-title mt-2" style="color:white;">Transaction Successful</h5>
+	<b style="color:white;">Name:<b style="color:cyan;text-transform: capitalize;"> ${viewcust.accountHolder.customerName }</b></b><br/>
+	<b style="color:white;">Account Number:<b style="color:cyan; "> ${viewcust.accountNumber}</b></b><br/>
+	<b style="color:white;">Account Balance:<b style="color:cyan;"> ${viewcust.accountBalance}</b></b>
+	
 </header>
 	
-<table class="table table-striped table-dark col-md-12" style="background-color: rgba(50,50,50,0.8);">
+<table class="table table-bordered table-striped table-dark col-md-12" style="background-color: rgba(50,50,50,0.8);">
   <thead>
     <tr>
-      <th scope="col">CustomerID</th>
-      <th scope="col">CustomerName</th>
-      <th scope="col">AccountNumber</th>
-      <th scope="col">Email ID</th>
-      <th scope="col">Updated Balance</th>
-      
+      <th scope="col">Value</th>
+      <th></th>
+      <th scope="col">Number of notes</th>
+       <th></th>
+      <th scope="col">Amount</th>
     </tr>
   </thead>
   <tbody>
+    <jstl:forEach var="note" items="${requestScope.deno}">
     <tr>
-      <td>${sessionScope.viewcust.accountHolder.customerId}</td>
-      <td>${sessionScope.viewcust.accountHolder.customerName}</td>
-      <td>${sessionScope.viewcust.accountNumber}</td>
-      <td>${sessionScope.viewcust.accountHolder.emailId}</td> 
-     	<td>${sessionScope.viewcust.accountBalance}</td>
-    </tr></tbody>
+   
+    
+      <td>${note.getKey()}</td>
+      <td>*</td>
+      <td>${note.getValue()}</td>
+      <td>=</td>
+      <td>${note.getKey() * note.getValue()}</td>
+     
+    </tr>
+    </jstl:forEach>
+    
+    <tr>
+    
+    <td> Total</td>
+    <td></td>
+    <td><b style="color:lightgreen;">${requestScope.toatlNotes}</b></td>
+    <td></td>
+    <td><b style="color:lightgreen;">${requestScope.amount}</b></td> 
+    </tr>
+    </tbody>
 </table>
-</div></jstl:if>
-<jstl:if test="${sessionScope.viewcust == null }">
+</div>
+<jstl:forEach var="note" items="${requestScope.deno}">
+</br>
+</jstl:forEach>
+    
+</jstl:if>
+<jstl:if test="${requestScope.viewcust == null }">
 <div class="row justify-content-center" >
 <header class="card-header col-md-12" style="background-color:rgba(50,50,50,0.8);">
 	<h5 class="card-title mt-2" style="color:red;text-align: center;">Customer Not Found or Insufficient Balance</h5>
